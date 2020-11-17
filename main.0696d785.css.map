@@ -1,1 +1,0 @@
-{"version":3,"sources":["scss\\main.scss"],"names":[],"mappings":"AACA,SACC,qBAED,MACC","file":"main.0696d785.css","sourceRoot":"..\\src","sourcesContent":["\r\n.library{\r\n\tbackground-color: red;\r\n}\r\n.home{\r\n\tbackground-color: blue;\r\n}"]}
