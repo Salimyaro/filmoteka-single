@@ -6,7 +6,6 @@ import cardsTpl from "../hbs/card.hbs";
 import fullCardsTpl from "../hbs/full-info-card.hbs";
 import * as basicLightbox from "basiclightbox";
 
-refs.error.classList.remove("visible");
 let localWanted = JSON.parse(localStorage.getItem("watched")) || [];
 let localQueue = JSON.parse(localStorage.getItem("queue")) || [];
 
@@ -26,6 +25,7 @@ const searchOptions = {
 };
 
 if (refs.body.dataset.page === "home") {
+  refs.error.classList.remove("visible");
   makeFirstPage();
   refs.searchForm.addEventListener("submit", onSearch);
 }
@@ -84,8 +84,10 @@ export async function renderSearch(p, q) {
     searchOptions.currentTotalPages = total_pages;
     const data = await makeData(results);
     refs.content.innerHTML = cardsTpl(data);
-  } catch(e) {
-    refs.error.classList.add('visible')
+  } catch (e) {
+    if (refs.body.dataset.page === "home") {
+      refs.error.classList.add("visible");
+    }
   }
 }
 
@@ -151,7 +153,7 @@ async function onGalleryClick({ target: { nodeName, dataset } }) {
     localStorage.setItem("watched", JSON.stringify(localWanted));
     localStorage.setItem("queue", JSON.stringify(localQueue));
     refresh();
-     if (refs.body.dataset.page === "home") instance.close();
+    if (refs.body.dataset.page === "home") instance.close();
   }
 
   function onAddToQueueClick(e) {
