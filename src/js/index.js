@@ -42,22 +42,23 @@ async function renderWatched() {
   const watchedDataArray = await Promise.all(
     JSON.parse(localStorage.getItem("watched")).map((id) => api.fetchById(id))
   );
-  watchedDataArray.map(
-    (obj) => (obj.genre_ids = obj.genres.map((value) => value.name).join(", "))
-  );
+  watchedDataArray.map((obj) => {
+    obj.genre_ids = obj.genres.map((value) => value.name).join(", ");
+    obj.release_date = obj.release_date.slice(0, 4);
+  });
   refs.content.innerHTML = cardsTpl(watchedDataArray);
 }
 
 async function renderQueue() {
   refs.watchedBTN.classList.remove("--active");
   refs.queueBTN.classList.add("--active");
-  const watchedDataArray = await Promise.all(
+  const queueDataArray = await Promise.all(
     JSON.parse(localStorage.getItem("queue")).map((id) => api.fetchById(id))
   );
-  watchedDataArray.map(
+  queueDataArray.map(
     (obj) => (obj.genre_ids = obj.genres.map((value) => value.name).join(", "))
   );
-  refs.content.innerHTML = cardsTpl(watchedDataArray);
+  refs.content.innerHTML = cardsTpl(queueDataArray);
 }
 
 async function makeFirstPage() {
