@@ -1,0 +1,37 @@
+<header class="header">
+  <nav class="navigation container">
+    <a class="navigation__logo" href="./index.html">
+      <svg class="navigation__icon" width="24" height="24">
+        <use href="./img/icons.svg#icon-film"></use>
+      </svg>
+      <span class="navigation__title">Filmoteka</span>
+    </a>
+    <ul class="navigation__list">
+      <li class="navigation__item">
+        <a href="./index.html" class="navigation__link --current">Home</a>
+      </li>
+      <li class="navigation__item">
+        <a href="./library.html" class="navigation__link">My library</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="search container">
+    <form class="search__container">
+      <label class="search__field">
+        <input
+          class="search__input"
+          type="text"
+          name="query"
+          placeholder=" "
+          required
+        />
+        <span class="search__label">Поиск фильмов</span>
+      </label>
+      <button type="submit" class="search__btn">
+        <svg class="search__icon" width="12" height="12">
+          <use href="./img/icons.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+  </div>
+</header>

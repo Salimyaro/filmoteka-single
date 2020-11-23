@@ -1,1 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 
+@import "./clear.scss";
+@import "./_variables.scss";
+@import "./buttons.scss";
+@import "basiclightbox/dist/basicLightbox.min.css";
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: $desktop + 140;
+  margin: 0 auto;
+}
+
+@import "./header.scss";
+@import "./content.scss";
+@import "./pagination.scss";
+@import "./footer.scss";
+@import "./modal.scss"

@@ -1,0 +1,130 @@
+.basicLightbox {
+  overflow: scroll;
+  align-items: baseline;
+  @media screen and (min-width: $tablet) {
+    align-items: center;
+  }
+}
+.info-card {
+  max-width: 95vw;
+  @media screen and (min-width: $mobile + 20) {
+    max-width: $mobile;
+  }
+  @media screen and (min-width: $tablet) {
+    max-width: $tablet - 110px;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop - 140px;
+  }
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  &__image {
+    width: 280px;
+    height: 416px;
+    object-fit: cover;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    @media screen and (min-width: $tablet) {
+      margin-right: 30px;
+      width: 308px;
+      height: 458px;
+    }
+    @media screen and (min-width: $desktop) {
+      margin-right: 30px;
+      width: 407px;
+      height: 605px;
+    }
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  &__list {
+    margin-bottom: 20px;
+  }
+  &__list-item {
+    margin-bottom: 10px;
+    display: flex;
+  }
+  &__list-names {
+    margin-right: 40px;
+    width: 70px;
+  }
+  &__list-values {
+    width: 130px;
+  }
+  &__votes-text,
+  &__popularity-text,
+  &__original-text,
+  &__genre-text {
+    display: inline-block;
+    width: 100px;
+    color: #8c8c8c;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  &__votes-average {
+    display: inline-block;
+    text-align: center;
+
+    background-color: $accent-color;
+    width: 36px;
+    height: 16px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+  &__votes-count,
+  &__popularity-num,
+  &__original-title,
+  &__genre {
+    width: 170px;
+    font-size: 12px;
+    font-weight: 500;
+    color: black;
+  }
+  &__about {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  &__overview {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+  &__close {
+    display: block;
+    margin: 0 auto;
+    @media screen and (min-width: $tablet) {
+      position: absolute;
+      bottom: 20px;
+      left: 49%;
+    }
+  }
+  &__buttons {
+    margin-bottom: 10px;
+  }
+  &__button {
+    color: black;
+    background-color: transparent;
+    border-color: black;
+  }
+}

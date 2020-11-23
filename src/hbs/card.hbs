@@ -1,1 +1,9 @@
-<h2>hbs</h2>
+{{#each this}}
+<li class="content__card">
+	<img class="content__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="" height="402px" width="280px"
+		data-id="{{id}}"
+		onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';">
+	<p class="content__film-name" data-id="{{id}}">{{title}}</p>
+	<p class="content__epics" data-id="{{id}}">{{genre_ids}} | {{release_date}}</p>
+</li>
+{{/each}}
