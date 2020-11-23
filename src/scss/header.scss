@@ -243,3 +243,15 @@
     display: block;
   }
 }
+.error {
+  display: none;
+  position: absolute;
+  transform: translate(-50%, 20px);
+  left: 50%;
+  text-align: center;
+  color: red;
+  font-size: 16px;
+  &.visible{
+    display: block;
+  }
+}

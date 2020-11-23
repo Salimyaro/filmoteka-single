@@ -6,6 +6,7 @@ import cardsTpl from "../hbs/card.hbs";
 import fullCardsTpl from "../hbs/full-info-card.hbs";
 import * as basicLightbox from "basiclightbox";
 
+refs.error.classList.remove("visible");
 let localWanted = JSON.parse(localStorage.getItem("watched")) || [];
 let localQueue = JSON.parse(localStorage.getItem("queue")) || [];
 
@@ -73,14 +74,19 @@ export async function renderTrending(p) {
 }
 
 export async function renderSearch(p, q) {
-  const { page, results, total_pages } = await api.fetchSearch(p, q);
-  searchOptions.currentPage = page;
-  if (searchOptions.query !== q) {
-    searchOptions.currentPage = 1;
+  try {
+    refs.error.classList.remove("visible");
+    const { page, results, total_pages } = await api.fetchSearch(p, q);
+    searchOptions.currentPage = page;
+    if (searchOptions.query !== q) {
+      searchOptions.currentPage = 1;
+    }
+    searchOptions.currentTotalPages = total_pages;
+    const data = await makeData(results);
+    refs.content.innerHTML = cardsTpl(data);
+  } catch(e) {
+    refs.error.classList.add('visible')
   }
-  searchOptions.currentTotalPages = total_pages;
-  const data = await makeData(results);
-  refs.content.innerHTML = cardsTpl(data);
 }
 
 async function onSearch(e) {
